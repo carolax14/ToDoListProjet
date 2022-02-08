@@ -4,6 +4,9 @@ Ce  projet est réalisée en C# avec le framework .NET et WindowsForm
 ## Description
 Cette application permet de créer et gérer une liste de tâches à effectuer
 
+## Déploiement
+Deployer avec Visual Studio 2019
+
 ## Contraite
 Les données doivent être sauvegardé dans une base de données SQLite
 
