@@ -38,7 +38,7 @@ namespace ToDoListProjet.DataAccess
 
         private static void Migrate()
         {
-            var db = GetInstance();
+            var db = GetInstance(); // Creation de la bdd
 
             if(db.CreateTableIfNotExists<Category>())
             {
