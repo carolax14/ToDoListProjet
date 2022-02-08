@@ -1,6 +1,7 @@
 ﻿using System;
 using ServiceStack.OrmLite;
 using ServiceStack.DataAnnotations;
+using ToDoListProjet.DataAccess;
 
 namespace ToDoListProjet.DataAccess.Models
 {
@@ -26,5 +27,20 @@ namespace ToDoListProjet.DataAccess.Models
         public Category GetCategory()
             => DbContext.GetInstance().SingleById<Category>(this.CategoryId);
 
+
+        public string GetStatus()
+        {
+            if (this.Done) return "Terminé";
+
+
+            if (this.EndStae >= DateTime.Now)
+            {
+                return "En cours";
+            }
+            else
+            {
+                return "Past due";
+            }
+        }
     }
 }
