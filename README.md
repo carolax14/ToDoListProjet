@@ -14,3 +14,17 @@ Les données doivent être sauvegardé dans une base de données SQLite
 - Maquettage
 - Définitions des tâches à faire
 - Développement de l'application
+
+## UserStory
+
+| En tant que |         Je peux                | 
+|-------------|--------------------------------|
+| Utilisateur | Ajouter une nouvelle tâche     |
+|-------------|--------------------------------|
+| Utilisateur | Supprimer une tâche            |
+|-------------|--------------------------------|
+| Utilisateur | Modifier une tâche             |
+|-------------|--------------------------------|
+| Utilisateur | Ajouter une nouvelle catégorie |
+|-------------|--------------------------------|
+| Utilisateur | Supprimer une catégorie        |
