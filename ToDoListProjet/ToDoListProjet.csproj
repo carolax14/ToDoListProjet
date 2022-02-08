@@ -233,6 +233,12 @@
     <Compile Include="DataAccess\DbContext.cs" />
     <Compile Include="DataAccess\Models\Category.cs" />
     <Compile Include="DataAccess\Models\TodoItem.cs" />
+    <Compile Include="FrmCategories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCategories.Designer.cs">
+      <DependentUpon>FrmCategories.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +247,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmCategories.resx">
+      <DependentUpon>FrmCategories.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>

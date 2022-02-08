@@ -43,6 +43,20 @@ namespace ToDoListProjet
             }
         }
 
+        private void ReloadCategories()
+        {
+            var db = DbContext.GetInstance();
+
+            // Récupère les catégories & les affiche dans le menu des catégories
+            List<string> catItems = new List<string>();
+            catItems.Add("All");
+
+            foreach (var category in db.Select<Category>())
+                catItems.Add(category.CategoryName);
+
+            barCategory.Items = catItems.ToArray();
+        }
+
         void ReloadData()
         {
             var db = DbContext.GetInstance();
@@ -54,7 +68,7 @@ namespace ToDoListProjet
                 data = data.Where(r => r.CategoryId == Category.GetCategoryByName(this._category).id).ToList();
 
             if (this._status != "Tous")
-                data = data.Where(r => r.Done == (this._status == "Complete")).ToList();
+                data = data.Where(r => r.Done == (this._status == "Terminé")).ToList();
 
             dgv.Bind(data);
              
@@ -119,7 +133,18 @@ namespace ToDoListProjet
 
         private void navMenu_OnItemSelected(object sender, string path, EventArgs e)
         {
-            
+            if (path == "Réglages catégories")
+            {
+                // Charge la fenêtre des catégories
+
+                Backdrop.Show(new FrmCategories(), this);
+
+                ReloadCategories();
+                return;
+            }
+
+            this._status = path.ToString();
+            ReloadData();
         }
     }
 }
