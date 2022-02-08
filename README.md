@@ -17,10 +17,11 @@ Les données doivent être sauvegardé dans une base de données SQLite
 
 ## UserStory
 
-| En tant que |         Je peux                | 
-|-------------|--------------------------------|
-| Utilisateur | Ajouter une nouvelle tâche     |
-| Utilisateur | Supprimer une tâche            |
-| Utilisateur | Modifier une tâche             |
-| Utilisateur | Ajouter une nouvelle catégorie |
-| Utilisateur | Supprimer une catégorie        |
+| En tant que |           Je peux               | 
+|-------------|---------------------------------|
+| Utilisateur | Ajouter une nouvelle tâche      |
+| Utilisateur | Supprimer une tâche             |
+| Utilisateur | Modifier une tâche              |
+| Utilisateur | Marquer une tâche comme terminée|          
+| Utilisateur | Ajouter une nouvelle catégorie  |
+| Utilisateur | Supprimer une catégorie         |
