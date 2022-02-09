@@ -5,7 +5,7 @@ using ToDoListProjet.DataAccess;
 
 namespace ToDoListProjet.DataAccess.Models
 {
-    [Alias("todo_list")]
+    [Alias("todo_list")] //Nom de la table dans bdd
     public class TodoItem
     {
         [PrimaryKey]
@@ -15,7 +15,7 @@ namespace ToDoListProjet.DataAccess.Models
 
         public string Description { get; set; } = string.Empty;
 
-        [References(typeof(Category))]
+        [References(typeof(Category))] // Clé étrangère
         public int CategoryId { get; set; }
 
         public DateTime StartDate { get; set; } = DateTime.Now;
@@ -28,6 +28,7 @@ namespace ToDoListProjet.DataAccess.Models
             => DbContext.GetInstance().SingleById<Category>(this.CategoryId);
 
 
+        //Retourne l'état de l'avancement des tâches
         public string GetStatus()
         {
             if (this.Done) return "Terminé";
@@ -39,7 +40,7 @@ namespace ToDoListProjet.DataAccess.Models
             }
             else
             {
-                return "Past due";
+                return "En retard";
             }
         }
     }

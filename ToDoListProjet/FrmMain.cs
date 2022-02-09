@@ -24,15 +24,15 @@ namespace ToDoListProjet
         public FrmMain()
         {
             InitializeComponent();
-
-
           
             var db = DbContext.GetInstance(); // Creation de la bdd & retourne la connexion etablie
+
             dgv.OnEdit<TodoItem>((r, c) => db.Save(r) || true);
             dgv.OnDelete<TodoItem>((r, c) => db.Delete(r) >= 0);
             dgv.OnError<TodoItem>((r, c) => bunifuSnackbar1.Show(this, DbContext.Exception.Message, Bunifu.UI.WinForms.BunifuSnackbar.MessageTypes.Error));
 
-            // Récupère les catégories & les affiche dans le menu des catégories
+            // Récupère les catégories 
+            // Les affiche dans la bar de menu des catégories
             List<string> catItems = new List<string>();
             catItems.Add("Tous");
             foreach (var category in db.Select<Category>())
@@ -41,15 +41,18 @@ namespace ToDoListProjet
 
                 barCategory.Items = catItems.ToArray();
             }
+
+           
         }
 
         private void ReloadCategories()
         {
             var db = DbContext.GetInstance();
 
-            // Récupère les catégories & les affiche dans le menu des catégories
+            // Récupère les catégories 
+            // Les affiche dans le menu des catégories
             List<string> catItems = new List<string>();
-            catItems.Add("All");
+            catItems.Add("Tous");
 
             foreach (var category in db.Select<Category>())
                 catItems.Add(category.CategoryName);
@@ -59,7 +62,7 @@ namespace ToDoListProjet
 
         void ReloadData()
         {
-            var db = DbContext.GetInstance();
+            var db = DbContext.GetInstance(); // Creation de la bdd & retourne la connexion etablie
 
             var data = db.Select<TodoItem>();
             data = data.Where(r => this._date >= r.StartDate.Date && this._date <= r.EndStae.Date).ToList();
@@ -70,14 +73,14 @@ namespace ToDoListProjet
             if (this._status != "Tous")
                 data = data.Where(r => r.Done == (this._status == "Terminé")).ToList();
 
-            dgv.Bind(data);
+                dgv.Bind(data);
              
 
         }
 
         private void FrmMain_Shown(object sender, EventArgs e)
         {
-            navMenu.Width = 360;
+            navMenu.Width = 300;
             ReloadData();
         }
 
@@ -110,6 +113,7 @@ namespace ToDoListProjet
             dgv.SearchRows(txtSearch.Text.Trim());
         }
 
+        // Ajoute une nouvelle tâche dans la liste
         private void btnAdd_Click(object sender, EventArgs e)
         {
             var db = DbContext.GetInstance();
@@ -117,13 +121,19 @@ namespace ToDoListProjet
             var newTask = new TodoItem()
             {
                 CategoryId = Category.GetCategoryByName(this._category).id,
+
             };
 
             db.Save(newTask);
 
+
+
             dgv.Bind(newTask, 1);
+           
         }
 
+
+        // Supprime une tâche de la liste
         private void btnDel_Click(object sender, EventArgs e)
         {
             if (dgv.CurrentRow.Tag == null) return;

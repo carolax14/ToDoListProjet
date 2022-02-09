@@ -262,6 +262,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -281,6 +282,21 @@
     <EmbeddedResource Include="Database\Readme.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\transparent-clock-icon-calendar-icon-office-icon-5d91b12c8e0493.6097193815698291645817.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\pngkit_calendar-vector-png_2986010.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\pngegg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\kindpng_2285034.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\pngkit_calendar-icon-png-transparent_1876553.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

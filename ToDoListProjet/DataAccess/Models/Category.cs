@@ -9,7 +9,7 @@ using ServiceStack.OrmLite;
 
 namespace ToDoListProjet.DataAccess.Models
 {
-    [Alias ("categories")]
+    [Alias ("categories")] //Nom de la table dans bdd
    public class Category
     {
         [PrimaryKey]
@@ -21,7 +21,7 @@ namespace ToDoListProjet.DataAccess.Models
 
         public static Category GetCategoryByName(string name)
         {
-            return DbContext.GetInstance()
+            return DbContext.GetInstance() //  Retourne la creation de la bdd & retourne la connexion etablie
                 .Single<Category>(
                 r => r.CategoryName.ToLower().Trim() == name.ToLower().Trim());
         }
