@@ -25,6 +25,7 @@ Les données doivent être sauvegardé dans une base de données SQLite
 | Utilisateur | Ajouter une nouvelle tâche      |
 | Utilisateur | Supprimer une tâche             |
 | Utilisateur | Modifier une tâche              |
+| Utilisateur | Prévoir une date de fin de tâche|  
 | Utilisateur | Marquer une tâche comme terminée|          
 | Utilisateur | Ajouter une nouvelle catégorie  |
 | Utilisateur | Supprimer une catégorie         |
