@@ -14,8 +14,8 @@ Les données doivent être sauvegardé dans une base de données SQLite
 
 ## Etapes de travail
 
-- Maquettage
 - Définitions des tâches à faire
+- Maquettage
 - Développement de l'application
 
 ## UserStory
